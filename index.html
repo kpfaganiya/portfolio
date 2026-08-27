@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> Kush Faganiya | Portfolio</title>
+  <style>
+
+    /* ===================== RESET & BASE ===================== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy:   #1a3a6b;
+      --blue:   #2563eb;
+      --light:  #f0f4ff;
+      --white:  #ffffff;
+      --gray:   #6b7280;
+      --dark:   #111827;
+      --border: #e5e7eb;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ===================== NAV ===================== */
+    nav {
+      position: fixed; top: 0; width: 100%;
+      background: var(--navy);
+      padding: 16px 40px;
+      display: flex; justify-content: space-between; align-items: center;
+      z-index: 999;
+    }
+
+    .nav-logo {
+      color: var(--white);
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .nav-links a {
+      color: var(--white);
+      margin-left: 28px;
+      font-size: 0.95rem;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .nav-links a:hover { opacity: 1; text-decoration: none; }
+
+    /* ===================== HERO ===================== */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #2563eb 100%);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 100px 20px 60px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      color: var(--white);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .hero-content h1 span { color: #93c5fd; }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 8px;
+    }
+
+    .hero-badges {
+      display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+      margin: 24px 0;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      padding: 6px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+
+    .btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); text-decoration: none; }
+
+    .btn-white { background: var(--white); color: var(--navy); }
+    .btn-outline { background: transparent; color: var(--white); border: 2px solid var(--white); }
+
+    /* ===================== SECTIONS ===================== */
+    section { padding: 80px 20px; max-width: 960px; margin: 0 auto; }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .section-line {
+      width: 50px; height: 4px;
+      background: var(--blue);
+      border-radius: 2px;
+      margin-bottom: 40px;
+    }
+
+    /* ===================== ABOUT ===================== */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text p { color: var(--gray); margin-bottom: 16px; font-size: 1.05rem; }
+
+    .about-info { display: flex; flex-direction: column; gap: 12px; }
+
+    .info-item {
+      background: var(--light);
+      border-left: 4px solid var(--blue);
+      padding: 14px 18px;
+      border-radius: 6px;
+    }
+
+    .info-item strong { color: var(--navy); display: block; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    .info-item span { color: var(--dark); font-size: 0.97rem; }
+
+    /* ===================== SKILLS ===================== */
+    #skills { background: var(--light); max-width: 100%; padding: 80px 20px; }
+    #skills > div { max-width: 960px; margin: 0 auto; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .skill-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-3px); }
+
+    .skill-card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .skill-card h3 { color: var(--navy); font-size: 1rem; margin-bottom: 6px; }
+    .skill-card p { color: var(--gray); font-size: 0.88rem; }
+
+    /* ===================== PROJECTS ===================== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--navy), var(--blue));
+    }
+
+    .project-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-4px); }
+
+    .project-card h3 { color: var(--navy); font-size: 1.15rem; margin-bottom: 10px; }
+    .project-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 16px; }
+
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .tag {
+      background: var(--light);
+      color: var(--navy);
+      padding: 3px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .project-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--blue); font-weight: 600; font-size: 0.9rem;
+    }
+
+    /* ===================== EXPERIENCE ===================== */
+    .exp-list { display: flex; flex-direction: column; gap: 24px; }
+
+    .exp-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      border-left: 5px solid var(--navy);
+    }
+
+    .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+    .exp-header h3 { color: var(--navy); font-size: 1.1rem; }
+    .exp-date { color: var(--blue); font-size: 0.88rem; font-weight: 600; background: var(--light); padding: 3px 12px; border-radius: 999px; }
+    .exp-org { color: var(--gray); font-size: 0.95rem; margin-bottom: 10px; }
+    .exp-card ul { padding-left: 18px; color: var(--gray); font-size: 0.95rem; }
+    .exp-card ul li { margin-bottom: 4px; }
+
+    /* ===================== CONTACT ===================== */
+    #contact { background: var(--navy); max-width: 100%; padding: 80px 20px; text-align: center; }
+    #contact > div { max-width: 600px; margin: 0 auto; }
+    #contact .section-title { color: var(--white); }
+    #contact .section-line { background: #93c5fd; }
+    #contact p { color: rgba(255,255,255,0.75); margin-bottom: 32px; font-size: 1.05rem; }
+
+    .contact-links { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    .contact-btn {
+      background: rgba(255,255,255,0.12);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.25);
+      font-weight: 600;
+      transition: background 0.2s;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .contact-btn:hover { background: rgba(255,255,255,0.22); text-decoration: none; }
+
+    /* ===================== FOOTER ===================== */
+    footer {
+      background: #0f1f3d;
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.88rem;
+    }
+
+    /* ===================== RESPONSIVE ===================== */
+    @media (max-width: 640px) {
+      .hero-content h1 { font-size: 2.2rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      nav { padding: 14px 20px; }
+      .nav-links a { margin-left: 16px; font-size: 0.85rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Kush Faganiya</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Hi, I'm <span>Kush Faganiya</span> 👋</h1>
+      <p>Computer Science Student at Seneca Polytechnic</p>
+      <p>Seeking Winter 2027 Co-op · Toronto, ON</p>
+      <div class="hero-badges">
+        <span class="badge">Python</span>
+        <span class="badge">JavaScript</span>
+        <span class="badge">HTML & CSS</span>
+        <span class="badge">Git & GitHub</span>
+        <span class="badge">SQL</span>
+      </div>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-white">View My Projects</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="section-line"></div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a first-year Computer Science student at Seneca Polytechnic in Toronto,
+          passionate about building software and solving real-world problems through technology.
+        </p>
+        <p>
+          I'm actively developing my skills in Python, web development, and databases
+          while looking for a Winter 2027 co-op opportunity where I can contribute,
+          learn, and grow as a developer.
+        </p>
+        <p>
+          Outside of coding, I bring strong communication and teamwork skills from
+          my professional experience working in high-pressure, public-facing environments.
+        </p>
+      </div>
+      <div class="about-info">
+        <div class="info-item">
+          <strong>School</strong>
+          <span>Seneca Polytechnic, Toronto</span>
+        </div>
+        <div class="info-item">
+          <strong>Program</strong>
+          <span> Bachelor of Computer Science (Co-op)</span>
+        </div>
+        <div class="info-item">
+          <strong>Seeking</strong>
+          <span>Winter 2027 Co-op</span>
+        </div>
+        <div class="info-item">
+          <strong>Location</strong>
+          <span>Toronto, Ontario, Canada</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="section-line"></div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="icon">🐍</div>
+          <h3>Python</h3>
+          <p>Functions, loops, data structures, file handling</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">🌐</div>
+          <h3>HTML & CSS</h3>
+          <p>Responsive design, cross-browser compatible layouts</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">⚡</div>
+          <h3>JavaScript</h3>
+          <p>DOM manipulation, event handling, interactivity</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">🗄️</div>
+          <h3>SQL</h3>
+          <p>MySQL basics, queries, CRUD operations</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">🔧</div>
+          <h3>Git & GitHub</h3>
+          <p>Version control, commits, repositories</p>
+        </div>
+        <div class="skill-card">
+          <div class="icon">💼</div>
+          <h3>MS Office</h3>
+          <p>Word, Excel, PowerPoint, Outlook</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="section-line"></div>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>🧠 Python Quiz Application</h3>
+        <p>A command-line quiz app with dynamic question loading, score tracking, input validation, and performance feedback. Built with clean, reusable functions.</p>
+        <div class="project-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+        </div>
+        <a class="project-link" href="https://github.com/kpfaganiya/Quizz-app" target="_blank">
+          → View on GitHub
+        </a>
+      </div>
+
+      <div class="project-card">
+        <h3>🌐 Personal Portfolio Website</h3>
+        <p>This responsive portfolio website built with HTML, CSS, and JavaScript. Deployed live on GitHub Pages with cross-browser compatible design.</p>
+        <div class="project-tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">GitHub Pages</span>
+        </div>
+        <a class="project-link" href="https://YOUR-USERNAME.github.io/portfolio" target="_blank">
+          → View Live Site
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="section-title">Work Experience</h2>
+    <div class="section-line"></div>
+    <div class="exp-list">
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h3>Traffic Services Specialist (Student)</h3>
+          <span class="exp-date">Summer 2026</span>
+        </div>
+        <div class="exp-org">Ontario Place – Ontario Public Service · Toronto, ON</div>
+        <ul>
+          <li>Enforced traffic regulations and prepared written incident reports to maintain safety across a high-volume public venue</li>
+          <li>Delivered frontline customer service to daily guests in a fast-paced environment</li>
+          <li>Applied Ontario Security Licence, Smart Serve, and First Aid certifications</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h3>Customer Service Representative</h3>
+          <span class="exp-date">Month Year – Month Year</span>
+        </div>
+        <div class="exp-org">Your Employer · Toronto, ON</div>
+        <ul>
+          <li>Communicated effectively with customers daily, resolving inquiries in a fast-paced environment</li>
+          <li>Collaborated with team members to meet service targets with adaptability and professionalism</li>
+          <li>Used Microsoft Office (Word, Excel, Outlook) for documentation and reporting</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div>
+      <h2 class="section-title">Get In Touch</h2>
+      <div class="section-line"></div>
+      <p>I'm actively looking for a Winter 2027 co-op opportunity. Feel free to reach out!</p>
+      <div class="contact-links">
+        <a class="contact-btn" href="mailto:your.email@email.com">📧 your.email@email.com</a>
+        <a class="contact-btn" href="https://linkedin.com/in/yourname" target="_blank">💼 LinkedIn</a>
+        <a class="contact-btn" href="https://github.com/YOUR-USERNAME" target="_blank">🐙 GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 YOUR NAME · Built with HTML, CSS & JavaScript · Hosted on GitHub Pages</p>
+  </footer>
+
+  <script>
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Highlight nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.style.opacity = link.getAttribute('href') === `#${current}` ? '1' : '0.75';
+      });
+    });
+  </script>
+
+</body>
+</html>
